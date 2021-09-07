@@ -1,0 +1,10 @@
+<div *ngFor="let movie of movieList" class="movieRow">
+	<h2>{{movie.title}}</h2>
+	<div class="movieRow--listarea">
+		<div class="movieRow--list">
+			<div *ngFor="let item of movie.items | async" class="movieRow--item">
+				<img src="https://image.tmdb.org/t/p/w300{{item.poster_path}}" alt="{{item.original_title}}">
+			</div>
+		</div>
+	</div>
+</div>

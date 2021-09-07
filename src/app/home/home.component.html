@@ -1,0 +1,13 @@
+<div class="content">
+		<app-header></app-header>
+		<app-featured-movie *ngIf="featuredMovie !== null" [featured]="featuredMovie"></app-featured-movie>
+		
+		<section class="lists">
+			<app-movie-row [movieList]="movies"></app-movie-row>
+		</section>
+		<footer>
+			Feito com <span class="footer--heart">&#9825;</span> por fapinheiro <br />
+			Diretios de iamgem para Netflix <br/>
+			Dados do site Themoviedb.org
+		</footer>
+</div>

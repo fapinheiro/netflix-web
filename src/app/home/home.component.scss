@@ -1,0 +1,35 @@
+.content {
+	overflow-x: hidden;
+	// max-width: 400ch;
+	// margin-left: 1em;
+	// margin-right: 1em;
+	// width: 100%;
+	// border: solid 5px green;
+	min-height: 100vh;
+	background-color: #111;
+	color: #FFF;
+	font-family: 'Roboto', sans-serif;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	// background-repeat: no-repeat;
+	// background-size: cover;
+}
+
+// .container {
+// 	margin: 1rem;
+// }
+
+.lists {
+	margin-top: -100px;
+}
+
+footer {
+	text-align: center;
+	margin: 50px;
+}
+
+.footer--heart {
+	color: rgba($color: red, $alpha: 0.6)
+}
