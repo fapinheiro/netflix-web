@@ -1,8 +1,14 @@
-<div *ngFor="let movie of movieList" class="movieRow">
+<div *ngFor="let movie of movieRowList" class="movieRow">
 	<h2>{{movie.title}}</h2>
 	<div class="movieRow--listarea">
-		<div class="movieRow--list">
-			<div *ngFor="let item of movie.items | async" class="movieRow--item">
+		<div class="movieRow--left" (click)="handleLeftArrow(movie)">
+			<span class="material-icons">navigate_before</span>
+			</div>
+		<div class="movieRow--right" (click)="handleRightArrow(movie)">
+			<span class="material-icons">navigate_next</span>
+		</div>
+		<div class="movieRow--list" [ngStyle]="{'margin-left': movie.scrollX + 'px', 'width' : movie.width + 'px'}">
+			<div *ngFor="let item of movie.items" class="movieRow--item">
 				<img src="https://image.tmdb.org/t/p/w300{{item.poster_path}}" alt="{{item.original_title}}">
 			</div>
 		</div>

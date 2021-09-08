@@ -38,6 +38,7 @@ export class MovieService {
       {
         slug: 'originals',
         title: 'Originais do Netflix',
+        
         items: this.basicFetch(`discover/tv?with_network=213&language=pt-BR&api_key=${environment.apiKey}`)
           .pipe(
             map((data) => data.body.results)
@@ -46,6 +47,7 @@ export class MovieService {
       {
         slug: 'trending',
         title: 'Recomendados para Você',
+     
         items: this.basicFetch(`trending/all/week?language=pt-BR&api_key=${environment.apiKey}`)
           .pipe(
             map((data) => data.body.results)
@@ -54,6 +56,7 @@ export class MovieService {
       {
         slug: 'toprated',
         title: 'Em Alta',
+       
         items: this.basicFetch(`movie/top_rated?language=pt-BR&api_key=${environment.apiKey}`).pipe(
           map((data) => data.body.results)
         )
@@ -61,6 +64,7 @@ export class MovieService {
       {
         slug: 'action',
         title: 'Ação',
+       
         items: this.basicFetch(`discover/movie?with_genres=28&language=pt-BR&api_key=${environment.apiKey}`).pipe(
           map( (data) => data.body.results)
         )
@@ -68,6 +72,7 @@ export class MovieService {
       {
         slug: 'comedy',
         title: 'Comédia',
+      
         items: this.basicFetch(`discover/movie?with_genres=35&language=pt-BR&api_key=${environment.apiKey}`).pipe(
           map( (data) => data.body.results)
         )
@@ -75,6 +80,7 @@ export class MovieService {
       {
         slug: 'horror',
         title: 'Terror',
+       
         items: this.basicFetch(`discover/movie?with_genres=27&language=pt-BR&api_key=${environment.apiKey}`).pipe(
           map( (data) => data.body.results)
         )
@@ -82,6 +88,7 @@ export class MovieService {
       {
         slug: 'romance',
         title: 'Romance',
+     
         items: this.basicFetch(`discover/movie?with_genres=10749&language=pt-BR&api_key=${environment.apiKey}`).pipe(
           map( (data) => data.body.results)
         )
@@ -89,6 +96,7 @@ export class MovieService {
       {
         slug: 'domentry',
         title: 'Documentários',
+       
         items: this.basicFetch(`discover/movie?with_genres=99&language=pt-BR&api_key=${environment.apiKey}`).pipe(
           map( (data) => data.body.results)
         )

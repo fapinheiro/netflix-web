@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { INIT, Store } from '@ngrx/store';
 import { of, Subscription } from 'rxjs';
 import { Movie } from '../models/movie.model';
 import { MovieService } from '../movie.service';
@@ -17,14 +17,21 @@ import { filter, map, switchMap } from 'rxjs/operators';
 export class HomeComponent implements OnInit, OnDestroy {
 
   movies: Movie[] = [];
+  
   moviesSubscription!: Subscription;
+  
   featuredMovie: any | null = null;
+  
+  loading: boolean = false;
 
   constructor(
     private movieService: MovieService,
     private store: Store<fromApp.AppState>) {}
 
   ngOnInit(): void {
+
+    this.loading = true;
+
     this.movieService.getHomeList()
       .subscribe(
         values => {
@@ -75,11 +82,23 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe(
         data => {
           this.featuredMovie = data.featured;
+          this.loading = false;
+        },
+        error => {
+          this.loading = false;
         }
     );
+  }
+
+
+  sleep(seconds: number): void
+  {
+    var e = new Date().getTime() + (seconds * 1000);
+    while (new Date().getTime() <= e) {}
   }
 
   ngOnDestroy(): void {
     this.moviesSubscription.unsubscribe();
   }
+
 }

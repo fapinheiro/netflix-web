@@ -27,6 +27,9 @@ export class FeaturedMovieComponent implements OnInit, OnDestroy {
         data => {
           this.featured = data.featured;
           this.featuredBackgroundUrl = `https://image.tmdb.org/t/p/original${this.featured.backdrop_path}`;
+          if (this.featured.overview.length > 200) {
+            this.featured.overview = this.featured.overview.substring(0, 200)+'...';
+          }
           this.yearOfRelease = new Date(this.featured.first_air_date).getFullYear();
           let genres: string[] = [];
           for (let i in this.featured.genres) {
